@@ -22,6 +22,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
  ## To Note
   All fields marked as * for e.g. Admin Name*, are mandatory throughtout the application.
   
+ ## Example pages of application
+ 
+ ### Form Error page
+ 
+ ![](/screenshots/Form-Error-example.jpg)
   
-  
-  
+   ### Form Valid page
+ 
+ ![](/screenshots/Form-Valid-example.jpg)

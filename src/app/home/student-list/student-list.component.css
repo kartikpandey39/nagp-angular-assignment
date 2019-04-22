@@ -1,0 +1,44 @@
+.example-card {
+  max-width: 400px;
+  background:grey;
+  margin: 10px;
+}
+
+
+.filter-toolbar {
+  width: 60%;
+  margin: 2% 20% 0 20%;
+  height: 2.5em;
+}
+.mat-button {
+  margin: 2px;
+  border: 2px white;
+}
+
+.International {
+  color : red;
+}
+
+.Domestic {
+  color:#02a773
+}
+
+.list-container {
+  width: 60%;
+  margin: 0 20% 0 20%
+}
+.list-element {
+  border-radius: 3px ;
+  box-shadow: 1px 1px 2px 1px #a9c7df;
+  margin-bottom: 1em;
+}
+.button-group {
+  width: 50%;
+}
+.button-group > * {
+  margin: 2%;
+}
+
+.student-property {
+  color: black;
+}

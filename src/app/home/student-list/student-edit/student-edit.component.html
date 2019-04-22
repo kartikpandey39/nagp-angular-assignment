@@ -1,0 +1,4 @@
+<div *ngIf="errorMessage">
+  {{errorMessage}}
+</div>
+<app-student-form *ngIf="!errorMessage" [currentStudent]="student" [methodOnSubmit]="method" ></app-student-form>

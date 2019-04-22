@@ -1,0 +1,38 @@
+.login-card-container{
+  width: 50%;
+  margin-left: 25%;
+}
+.login-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* width: 100%; */
+  text-align: center;
+  margin: 10% 0;
+  min-height: 200px;
+  background-color:#f0f1f6;
+  align-items: center;
+  box-shadow: 4px 4px 4px grey;
+
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.login-card-content,  .login-card-button{
+  margin: 5%;
+}
+
+.mat-card-actions .mat-raised-button:first-child {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.mat-card-header .mat-card-title {
+  width: 100%;
+  color: #3f51b5;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #ff4081;
+}

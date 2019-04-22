@@ -1,0 +1,40 @@
+<div>
+  <div>
+
+        <mat-toolbar class="filter-toolbar">
+          <mat-form-field>
+            <input matInput placeholder="Search by name" [(ngModel)]="searchQuery"><mat-icon>search</mat-icon>
+          </mat-form-field>
+            <!-- This fills the remaining space of the current row -->
+            <span  class="fill-remaining-space">
+
+            </span>
+            <span><mat-icon>
+                filter_list
+            </mat-icon></span> &nbsp;
+            <!-- Category selector -->
+          <mat-form-field >
+            <mat-select [(ngModel)]='categorySelected'>
+              <mat-option value=''>All students</mat-option>
+                <mat-option class="Domestic" value='Domestic'>Domestic</mat-option>
+                <mat-option class="International" value='International'>International</mat-option>
+            </mat-select>
+          </mat-form-field>
+         </mat-toolbar>
+
+   <!-- Display Student list -->
+  </div>
+  <div *ngIf="students" class="list-container">
+      <mat-list>
+        <mat-list-item class="list-element" *ngFor='let student of students | studentFilter: categorySelected: searchQuery'>
+          <span class='{{student.category}}' matLine > <span class="student-property"> Name:</span> {{student.name}} | <span class="student-property">Category:</span> {{student.category}} | <span class="student-property"> Last Class Score: </span>{{student.lastclassscore}}</span>
+          <div class="button-group">
+            <button mat-button color="primary" [routerLink]="['../view', student.id]" routerLinkActive="router-link-active" >View</button>
+            <button mat-button color="accent" [routerLink]="['../edit', student.id]" routerLinkActive="router-link-active">Edit</button>
+            <button mat-button color="warn" (click)="deleteDialog(student.id)">Delete</button>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+  </div>
+</div>

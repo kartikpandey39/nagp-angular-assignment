@@ -1,0 +1,26 @@
+<div class="login-card-container">
+      <mat-card class="login-card" color="basic">
+        <mat-card-header>
+          <mat-card-title>Please Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+              <mat-form-field class="login-card-content">
+                
+                <input matInput type="text" placeholder="Admin username" [(ngModel)]="admin.userName" required maxlength="20"  /><br/>
+              </mat-form-field>
+
+              <mat-form-field class="login-card-content">
+
+                <input matInput type="password" placeholder="Admin password" [(ngModel)]="admin.password" required  maxlength="20"/><br/>
+              </mat-form-field>
+        </mat-card-content>
+        <mat-error *ngIf="userNotFoundError">
+          Entered credentials are not valid. Please check again!
+        </mat-error>
+        <mat-card-actions >
+          <button mat-raised-button color="primary" (click)="login()">Login</button>
+          <button mat-raised-button color="primary" (click)="reset()">Reset</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+

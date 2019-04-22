@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+   <!-- This shift heading to mid space of the current row -->
+  <!-- <span class="fill-remaining-space"></span> -->
+  <span>
+    <mat-icon>
+      person_add
+    </mat-icon>
+    &nbsp; Student Onboarding Portal
+  </span>
+
+  <span class="title"> </span>
+   <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+
+  <div *ngIf="admin || this.loginService.currentAdmin">
+    <button mat-button color="disabled" class="noHover">
+      <mat-icon>account_circle</mat-icon>  {{ this.loginService.currentAdmin? this.loginService.currentAdmin.displayName : admin.displayName | uppercase}}
+    </button>
+     <button mat-button (click)="logoutDialog()"><mat-icon>exit_to_app</mat-icon></button>
+  </div>
+
+</mat-toolbar>
+

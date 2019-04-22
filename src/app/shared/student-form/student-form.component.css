@@ -1,0 +1,49 @@
+/* .value-field {
+float: left;
+} */
+
+.document-list-left-container {
+  width: 30%;
+  height: 20em;
+  float: left;
+}
+.document-list-right-container {
+  width: 60%;
+  height: 20em;
+}
+.form-heading {
+  height: 40px;
+}
+.form-container {
+    margin: 2% 25% 5% 25%;
+    /* padding-left: 8em; */
+    /* margin: 2em; */
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+.document-column {
+  float:left;
+  margin-right: 4em
+}
+/*
+  .example-container > * {
+    width: 50%;
+  } */
+
+
+.gridlist-checkboxes{
+    display: block;
+}
+
+.grid-list-container {
+    width: 30%;
+}
+
+
+.button-container {
+  margin: 0% 38%;
+}
+.button-container > * {
+  margin: 2%;
+}

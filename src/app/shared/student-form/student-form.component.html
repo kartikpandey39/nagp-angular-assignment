@@ -1,0 +1,154 @@
+<form [formGroup]="group" (ngSubmit)="submit()" class="form-container">
+
+  <!-- Form heading -->
+  <mat-toolbar class="form-heading" color="accent">
+    <!-- This shift heading to mid space of the current row -->
+    <span class="fill-remaining-space"></span>
+    <span> Student Onboarding Form</span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+
+  <!-- Form Fields -->
+  <mat-form-field>
+    <span>
+      <input
+        matInput
+        placeholder="Name*"
+        formControlName="name"
+        class="valuefield"
+    /></span>
+    <mat-error *ngIf="group.get('name').hasError('required')">
+      Name is a required field
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category selected*</mat-label>
+    <mat-select formControlName="category" (selectionChange)="resetDocument()">
+      <mat-option value="Domestic">Domestic</mat-option>
+      <mat-option value="International">International</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <span
+      ><input
+        matInput
+        placeholder="Father's Name*"
+        formControlName="fathername"
+        class="valuefield"
+    /></span>
+    <mat-error *ngIf="group.get('fathername').hasError('required')">
+      Father's Name is a required field
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+
+    <span
+      ><input
+        matInput
+        placeholder="Mother's Name*"
+        formControlName="mothername"
+        class="valuefield"
+    /></span>
+    <mat-error *ngIf="group.get('mothername').hasError('required')">
+      Mother's Name is a required field
+    </mat-error>
+  </mat-form-field>
+
+   <!-- Form Document List -->
+  <div>
+    <div class="document-column">
+      <label>
+        Document List (Required*):
+      </label>
+    </div>
+    <div class="document-column">
+      <div *ngFor="let document of documentForms.controls; let i = index">
+        <label>
+          <mat-checkbox (change)="checkCheckBoxValid()" matNativeControl [formControl]="document">
+            {{ documents[i].name }}
+          </mat-checkbox>
+          <span *ngIf="documents[i].ismandatory">*</span>
+        </label>
+      </div>
+    </div>
+
+    <mat-error
+    *ngIf="
+      group.get('documents').touched &&
+      (this.mandatoryCheckBoxNotSelected ||
+        group.get('documents').hasError('required'))
+    "
+    >
+      Please select mandatory marked(*) checkboxes
+    </mat-error>
+   
+  </div>
+  <mat-form-field>
+    <span
+      ><input
+        matInput
+        type="number"
+        placeholder="Last class score*"
+        formControlName="lastclassscore"
+        class="valuefield"
+    /></span>
+    <mat-error *ngIf="group.get('lastclassscore').hasError('min')">
+      Last class score can't be negative
+    </mat-error>
+    <mat-error *ngIf="group.get('lastclassscore').hasError('max')">
+      Last class score should be less then or equal 100
+    </mat-error>
+    <mat-error *ngIf="group.get('lastclassscore').hasError('pattern')">
+      Last class score can only be a number
+    </mat-error>
+  </mat-form-field>
+
+   <!-- Date Form field -->
+  <mat-form-field>
+    <input
+      matInput [min]="minDate" [max]="maxDate"
+      [matDatepicker]="picker"
+      placeholder="Date of birth*"
+      formControlName="dob"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker  #picker></mat-datepicker>
+    <mat-error *ngIf="group.get('dob').hasError('required') && group.get('dob').dirty">
+      DOB is a required field
+    </mat-error>
+    <mat-error *ngIf="group.get('dob').invalid && group.get('dob').dirty">
+        DOB entered is out of range
+      </mat-error>
+
+  </mat-form-field>
+
+   <!-- Action button container -->
+  <div class="button-container">
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]=" viewmode || !group.valid || this.mandatoryCheckBoxNotSelected || !group.dirty || !group.touched"
+    >
+      Submit
+    </button>
+    <button
+      type="button"
+      mat-raised-button
+      [disabled]="viewmode"
+      (click)="reset()"
+    >
+      Reset
+    </button>
+  </div>
+
+  <!-- Note field -->
+  <div>
+    <span style="color: Red">To Note: </span>
+    <span> All fileds marked(*) are required.</span>
+  </div>
+</form>

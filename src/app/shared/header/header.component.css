@@ -1,0 +1,7 @@
+h1 {
+  background-color: cyan;
+}
+
+.noHover {
+  pointer-events: none;
+}

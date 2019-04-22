@@ -1,0 +1,12 @@
+
+<nav mat-tab-nav-bar mat-stretch-tabs backgroundColor="basic">
+        <button mat-tab-link mat-button  color="basic"
+        *ngFor="let link of navLinks"
+        [routerLink]="link.link"
+        routerLinkActive #rla="routerLinkActive"
+        [active]="rla.isActive">
+        {{link.label}}
+      </button>
+  </nav>
+  <hr>
+<router-outlet></router-outlet>
